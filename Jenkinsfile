@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                sh 'rm -rf '
-                sh 'git clone '
+                sh 'rm -rf Parcel-service'
+                sh 'git clone https://github.com/88janu/Parcel-service.git'
             }
         }
         stage('build') {
@@ -15,8 +15,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sh 'ssh root@172.31.6.180'
-                sh 'scp  root@172.31.6.180:/opt/apache-tomcat-8.5.98/webapps'
+                echo "deploying started"
             }
         }
     }
